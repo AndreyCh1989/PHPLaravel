@@ -1,1 +1,30 @@
-//
+@import '~bootstrap/scss/bootstrap';
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+}
+
+main {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 50px;
+    width: 100%;
+
+    header {
+        height: 50px;
+    }
+
+    .content {
+        margin-top: 25px;
+    }
+}
