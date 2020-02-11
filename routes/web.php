@@ -11,14 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::group([
+        'namespace' => 'ProjectControllers'
+    ], function () {
+        Route::get('/', 'HiController@index') -> name('index');
+        Route::get('/categories', 'CategoriesController@get') -> name('categories');
+        Route::group([
+                'prefix' => 'news',
+                'as' => 'news.'
+            ], function () {
+                Route::get('/{category_id}', 'NewsController@getByCategory') -> name('getByCategory');
+                Route::get('/one/{id}', 'NewsController@get') -> name('one');
+            }
+        );
 
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/news', function () {
-    return view('news');
-});
+        Route::get('/about', function () {
+            return view('about');
+        });
+    }
+);
