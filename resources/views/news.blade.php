@@ -1,12 +1,14 @@
-@extends('layouts.main-nav')
+@extends('layouts.main')
 
 @section('content')
     <div style="margin-bottom: 15px">
         {{ $category['name'] }} News
     </div>
-    @foreach ($news as $n)
+    @forelse ($news as $item)
         <p>
-            <a href="{{ route('news.one', $n['id']) }}"> {{ $n['title'] }}</a>
+            <a href="{{ route('news.one', $item['id']) }}"> {{ $item['title'] }}</a>
         </p>
-    @endforeach
+    @empty
+        <p>No news</p>
+    @endforelse
 @endsection

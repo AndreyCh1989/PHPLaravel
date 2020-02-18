@@ -7,13 +7,11 @@
 </head>
 <body>
     <main>
-        <header class="bg-secondary">
-            <div class="text-dark text-center font-weight-bold">Super-duper news</div>
-        </header>
+        @include('header.header')
 
         <form class="w-75 mx-auto content">
 
-            @yield('menu')
+            @include('menu.menu')
 
             <div class="mt-2">
                 @yield('content')
@@ -22,9 +20,7 @@
         </form>
     </main>
 
-    <footer class="bg-secondary">
-        <div class="text-dark text-center">Footer</div>
-    </footer>
+    @include('footer.footer')
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
