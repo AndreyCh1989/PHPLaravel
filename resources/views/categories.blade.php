@@ -1,12 +1,14 @@
-@extends('layouts.main-nav')
+@extends('layouts.main')
 
 @section('content')
     <div style="margin-bottom: 15px">
         Choose category
     </div>
-    @foreach ($categories as $category)
+    @forelse ($categories as $category)
         <p>
             <a href="{{ route('news.getByCategory', $category['id']) }}"> {{ $category['name'] }}</a>
         </p>
-    @endforeach
+    @empty
+        <p>No categories</p>
+    @endforelse
 @endsection

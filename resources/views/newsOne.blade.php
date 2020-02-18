@@ -1,8 +1,8 @@
-@extends('layouts.main-nav')
+@extends('layouts.main')
 
 @section('content')
     <div style="margin-bottom: 15px">
-        <h1>{{ $news['title'] }}</h1>
-        <p>{{ $news['text'] }}</p>
+        <h1>{{ $item['title'] }}</h1>
+        <p>{{ $item['text'] }}</p>
     </div>
 @endsection
