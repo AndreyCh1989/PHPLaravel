@@ -22,7 +22,15 @@ class FileController extends Controller
         $this->content = json_decode($jsonString, true);
     }
 
-    public function add($entity) {
+    public function getNewId() {
+        return max(
+            array_map(function($o) {
+                return $o['id'];
+            },
+            $this->content)) + 1;
+    }
+
+    public function addEntity($entity) {
         $jsonString = file_get_contents(base_path(config('app.file_storage') . $this->path));
         $this->content = json_decode($jsonString, true);
 

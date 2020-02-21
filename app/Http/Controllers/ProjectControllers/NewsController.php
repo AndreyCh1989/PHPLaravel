@@ -15,30 +15,41 @@ class NewsController extends FileController
         $categories = (new CategoriesController($this->request))->content;
 
         if ($news)
-            return view('news', [
+            return view('objects.news.all', [
                 'category' => DbUtils::getOneByParam($categories, 'id', $category_id),
                 'news' => $news
             ]);
         else
-            return redirect(route('categories'));
+            return redirect(route('objects.categories.all'));
     }
 
     public function get($id) {
         $item = DbUtils::getOneByParam($this->content, 'id', $id);
         if ($item)
-            return view('newsOne', [
+            return view('objects.news.one', [
                 'item' => $item
             ]);
         else
-            return redirect(route('categories'));
+            return redirect(route('objects.categories.all'));
     }
 
     public function add() {
+        $categories = (new CategoriesController($this->request))->content;
+
         if ($this->request->isMethod('post')) {
-            dump($this->request);
-            die();
-        } else {
-            return view('');
+            $newItem = [
+                "id" => $this->getNewId(),
+                "category_id" => (int)$this->request->category_id,
+                "title" => $this->request->title,
+                "text" => $this->request->text,
+                "isPrivate" => $this->request->is_private
+            ];
+
+            $this->addEntity($newItem);
         }
+
+        return view('objects.news.add', [
+            'categories' => $categories
+        ]);
     }
 }

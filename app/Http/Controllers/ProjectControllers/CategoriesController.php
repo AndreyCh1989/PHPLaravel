@@ -10,6 +10,6 @@ class CategoriesController extends FileController
     protected $path = "db/categories.json";
 
     public function get() {
-        return view('categories', ['categories' => $this->content]);
+        return view('objects.categories.all', ['categories' => $this->content]);
     }
 }
