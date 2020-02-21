@@ -192,7 +192,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/OSPanel/modules/php/PHP_7.3-x64/php.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
@@ -353,14 +353,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="743" y="376" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582290626984" />
-    <state x="585" y="115" width="1145" height="809" key="CommitChangelistDialog2" timestamp="1582307216540">
+    <state x="585" y="115" width="1145" height="809" key="CommitChangelistDialog2" timestamp="1582309612548">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="115" width="1145" height="809" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582307216540" />
-    <state x="661" y="421" key="FileChooserDialogImpl" timestamp="1582307711943">
+    <state x="585" y="115" width="1145" height="809" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1582309612548" />
+    <state x="661" y="421" key="FileChooserDialogImpl" timestamp="1582309686478">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="421" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582307711943" />
+    <state x="661" y="421" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1582309686478" />
     <state width="1877" height="401" key="GridCell.Tab.0.bottom" timestamp="1582308540654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -429,10 +429,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582307720794" />
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1582307173384">
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1582309617854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582307173384" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1582309617854" />
     <state x="661" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1582305620681">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
