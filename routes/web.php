@@ -22,9 +22,12 @@ Route::group([
             ], function () {
                 Route::get('/category/{category_id}', 'NewsController@getByCategory') -> name('getByCategory');
                 Route::get('/one/{id}', 'NewsController@get') -> name('one');
+                Route::match(['get', 'post'],'/add', 'NewsController@add') -> name('add');
             }
         );
 
         Route::get('/about', 'AboutController@get') -> name('about');
     }
 );
+
+Auth::routes();

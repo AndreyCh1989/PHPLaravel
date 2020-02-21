@@ -3,11 +3,13 @@
 
 namespace App\Http\Controllers\ProjectControllers;
 
-use App\Db\Db;
+use App\Http\Controllers\FileController;
 
-class CategoriesController
+class CategoriesController extends FileController
 {
+    protected $path = "db/categories.json";
+
     public function get() {
-        return view('categories', ['categories' => Db::$categories]);
+        return view('objects.categories.all', ['categories' => $this->content]);
     }
 }

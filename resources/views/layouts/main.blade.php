@@ -9,7 +9,7 @@
     <main>
         @include('header.header')
 
-        <form class="w-75 mx-auto content">
+        <div class="w-75 mx-auto content">
 
             @include('menu.menu')
 
@@ -17,7 +17,7 @@
                 @yield('content')
             </div>
 
-        </form>
+        </div>
     </main>
 
     @include('footer.footer')

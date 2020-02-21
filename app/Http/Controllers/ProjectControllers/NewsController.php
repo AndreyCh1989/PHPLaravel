@@ -3,15 +3,20 @@
 
 namespace App\Http\Controllers\ProjectControllers;
 
-use App\Db\Db;
+use App\Utils\DbUtils;
+use App\Http\Controllers\FileController;
 
-class NewsController
+class NewsController extends FileController
 {
+    protected $path = "db/news.json";
+
     public function getByCategory($category_id) {
-        $news = Db::getNewsByCategoryId($category_id);
+        $news = DbUtils::getAllByParam($this->content, 'category_id', $category_id);
+        $categories = (new CategoriesController($this->request))->content;
+
         if ($news)
-            return view('news', [
-                'category' => Db::getCategoryById($category_id),
+            return view('objects.news.all', [
+                'category' => DbUtils::getOneByParam($categories, 'id', $category_id),
                 'news' => $news
             ]);
         else
@@ -19,12 +24,33 @@ class NewsController
     }
 
     public function get($id) {
-        $item = Db::getNewsyById($id);
+        $item = DbUtils::getOneByParam($this->content, 'id', $id);
         if ($item)
-            return view('newsOne', [
-                'item' => Db::getNewsyById($id)
+            return view('objects.news.one', [
+                'item' => $item
             ]);
         else
             return redirect(route('categories'));
+    }
+
+    public function add() {
+        $categories = (new CategoriesController($this->request))->content;
+
+        if ($this->request->isMethod('post')) {
+            $newItem = [
+                "id" => $this->getNewId(),
+                "category_id" => (int)$this->request->category_id,
+                "title" => $this->request->title,
+                "text" => $this->request->text,
+                "isPrivate" => $this->request->is_private
+            ];
+
+            $this->request->flash('title');
+            $this->addEntity($newItem);
+        }
+
+        return view('objects.news.add', [
+            'categories' => $categories
+        ]);
     }
 }
