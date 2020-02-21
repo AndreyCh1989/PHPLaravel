@@ -1,0 +1,50 @@
+[
+    {
+        "id": 0,
+        "category_id": 0,
+        "title": "Sport news one",
+        "text": "Some text about Sport news 1"
+    },
+    {
+        "id": 1,
+        "category_id": 0,
+        "title": "Sport news two",
+        "text": "Some text about Sport news 2"
+    },
+    {
+        "id": 2,
+        "category_id": 1,
+        "title": "Business news one",
+        "text": "Some text about Business news 1"
+    },
+    {
+        "id": 3,
+        "category_id": 2,
+        "title": "World news one",
+        "text": "Some text about World news 1"
+    },
+    {
+        "id": 4,
+        "category_id": 2,
+        "title": "World news two",
+        "text": "Some text about World news 2"
+    },
+    {
+        "id": 5,
+        "category_id": 2,
+        "title": "World news three",
+        "text": "Some text about World news 3"
+    },
+    {
+        "id": 6,
+        "category_id": 3,
+        "title": "Science news one",
+        "text": "Some text about Science news 1"
+    },
+    {
+        "id": 7,
+        "category_id": 3,
+        "title": "Science news two",
+        "text": "Some text about Science news 2"
+    }
+]

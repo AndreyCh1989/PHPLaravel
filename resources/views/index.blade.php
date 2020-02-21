@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="alert alert-primary" role="alert">
-        Hello User!
+        Hello
+        @guest
+            Guest!
+        @else
+            {{ Auth::user()->name }}!
+        @endguest
     </div>
 @endsection
