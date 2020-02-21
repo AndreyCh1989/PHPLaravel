@@ -20,7 +20,7 @@ class NewsController extends FileController
                 'news' => $news
             ]);
         else
-            return redirect(route('objects.categories.all'));
+            return redirect(route('categories'));
     }
 
     public function get($id) {
@@ -30,7 +30,7 @@ class NewsController extends FileController
                 'item' => $item
             ]);
         else
-            return redirect(route('objects.categories.all'));
+            return redirect(route('categories'));
     }
 
     public function add() {
