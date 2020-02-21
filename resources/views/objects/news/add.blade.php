@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
+    @if(old('title', null) != null)
+        <p>"<b>{{ old('title') }}</b>" was added</p>
+    @endif
     <form method="POST" action="{{ route('news.add') }}">
         @csrf
         <div class="input-group mt-3">

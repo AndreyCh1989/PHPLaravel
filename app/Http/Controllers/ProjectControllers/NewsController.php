@@ -45,6 +45,7 @@ class NewsController extends FileController
                 "isPrivate" => $this->request->is_private
             ];
 
+            $this->request->flash('title');
             $this->addEntity($newItem);
         }
 
