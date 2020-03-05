@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'password' => '111',
+            'password' => bcrypt('111'),
             'is_admin' => true
         ]);
     }

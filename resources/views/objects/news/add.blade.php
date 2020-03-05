@@ -2,7 +2,12 @@
 
 @section('content')
     @if(old('title', null) != null)
-        <p>"<b>{{ old('title') }}</b>" was added</p>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <p>"<b>{{ old('title') }}</b>" was added</p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     @endif
     <form method="POST" action="{{ route('news.add') }}">
         @csrf
@@ -13,7 +18,7 @@
             <select name="category_id" class="custom-select" type="number" id="inputGroupSelect01">
                 <option selected>Choose...</option>
                 @foreach ($categories as $item)
-                    <option value="{{ $item['id'] }}">{{ $item['name'] }}</option>
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
             </select>
         </div>

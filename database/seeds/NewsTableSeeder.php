@@ -13,7 +13,7 @@ class NewsTableSeeder extends Seeder
     {
         DB::table('news')->delete();
         $categoriesIds = DB::table('categories')->pluck('id')->toArray();
-        $faker = Faker\Factory::create();
+        $faker = Faker\Factory::create('us_US');
         $news = [];
 
         for ($i=0; $i<20; $i++) {
