@@ -6,21 +6,18 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <main>
-        @include('header.header')
+    @include('header.header')
 
-        <div class="w-75 mx-auto content">
+    <div class="w-75 mx-auto content" id="container">
+        @include('menu.menu')
 
-            @include('menu.menu')
-
-            <div class="mt-2">
-                @yield('content')
-            </div>
-
+        <div class="mt-2">
+            @yield('content')
         </div>
-    </main>
+    </div>
 
     @include('footer.footer')
+
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

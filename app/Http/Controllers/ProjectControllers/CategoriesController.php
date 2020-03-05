@@ -3,13 +3,12 @@
 
 namespace App\Http\Controllers\ProjectControllers;
 
-use App\Http\Controllers\FileController;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
-class CategoriesController extends FileController
+class CategoriesController extends Controller
 {
-    protected $path = "db/categories.json";
-
     public function get() {
-        return view('objects.categories.all', ['categories' => $this->content]);
+        return view('objects.categories.all', ['categories' => DB::table('categories')->get()]);
     }
 }

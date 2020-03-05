@@ -1,2 +1,0 @@
-INSERT INTO users (id, name, email, email_verified_at, password, remember_token, created_at, updated_at, is_admin) VALUES (2, 'User', 'user@user', null, '$2y$10$4jIFgisWzTQys8hXGxu2ROe9IVinNyoWhhe0kbdkWjpyD83Iac9/m', null, '2020-02-21 14:48:48', '2020-02-21 14:48:48', 1);
-INSERT INTO users (id, name, email, email_verified_at, password, remember_token, created_at, updated_at, is_admin) VALUES (3, 'Bob', 'bob@mail', null, '$2y$10$6ojK3V7fSkyNdKM7DkZ4fOyVNbrw4qP0Q4.Q.j5aic1qn4ZwUWL.6', null, '2020-02-21 17:27:53', '2020-02-21 17:27:53', 0);

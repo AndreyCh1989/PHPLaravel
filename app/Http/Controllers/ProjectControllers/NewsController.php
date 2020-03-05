@@ -3,20 +3,19 @@
 
 namespace App\Http\Controllers\ProjectControllers;
 
-use App\Utils\DbUtils;
-use App\Http\Controllers\FileController;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
-class NewsController extends FileController
+class NewsController extends Controller
 {
-    protected $path = "db/news.json";
+    protected $table = "news";
 
     public function getByCategory($category_id) {
-        $news = DbUtils::getAllByParam($this->content, 'category_id', $category_id);
-        $categories = (new CategoriesController($this->request))->content;
+        $news = DB::table('news')->where('category_id', $category_id)->get();
 
         if ($news)
             return view('objects.news.all', [
-                'category' => DbUtils::getOneByParam($categories, 'id', $category_id),
+                'category' => DB::table('categories')->find($category_id),
                 'news' => $news
             ]);
         else
@@ -24,7 +23,7 @@ class NewsController extends FileController
     }
 
     public function get($id) {
-        $item = DbUtils::getOneByParam($this->content, 'id', $id);
+        $item = DB::table('news')->find($id);
         if ($item)
             return view('objects.news.one', [
                 'item' => $item
@@ -34,23 +33,20 @@ class NewsController extends FileController
     }
 
     public function add() {
-        $categories = (new CategoriesController($this->request))->content;
-
         if ($this->request->isMethod('post')) {
             $newItem = [
-                "id" => $this->getNewId(),
                 "category_id" => (int)$this->request->category_id,
                 "title" => $this->request->title,
                 "text" => $this->request->text,
-                "isPrivate" => $this->request->is_private
+                "is_private" => $this->request->is_private
             ];
 
             $this->request->flash('title');
-            $this->addEntity($newItem);
+            DB::table('news')->insert($newItem);
         }
 
         return view('objects.news.add', [
-            'categories' => $categories
+            'categories' => DB::table('categories')->get()
         ]);
     }
 }
