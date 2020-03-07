@@ -16,7 +16,6 @@
                 <label class="input-group-text" for="inputGroupSelect01">Category</label>
             </div>
             <select name="category_id" class="custom-select" type="number" id="inputGroupSelect01">
-                <option selected>Choose...</option>
                 @foreach ($categories as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach

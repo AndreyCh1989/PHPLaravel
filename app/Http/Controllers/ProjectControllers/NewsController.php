@@ -38,7 +38,7 @@ class NewsController extends Controller
                 "category_id" => (int)$this->request->category_id,
                 "title" => $this->request->title,
                 "text" => $this->request->text,
-                "is_private" => $this->request->is_private
+                "is_private" =>  isset($this->request->is_private)
             ];
 
             $this->request->flash('title');
