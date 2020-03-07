@@ -6,7 +6,7 @@
     </div>
     @forelse ($categories as $category)
         <p>
-            <a href="{{ route('news.getByCategory', $category->id) }}"> {{ $category->name }}</a>
+            <a href="{{ route('news.getByCategory', $category) }}"> {{ $category->name }}</a>
         </p>
     @empty
         <p>No categories</p>
