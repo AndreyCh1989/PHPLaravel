@@ -20,11 +20,12 @@ Route::group([
                 'prefix' => 'news',
                 'as' => 'news.'
             ], function () {
-                Route::get('/category/{category_id}', 'NewsController@getByCategory') -> name('getByCategory');
-                Route::get('/one/{id}', 'NewsController@get') -> name('one');
-                Route::match(['get', 'post'],'/add', 'NewsController@add') -> name('add');
+                Route::get('/category/{category}', 'NewsController@getByCategory') -> name('getByCategory');
+                Route::get('/all', 'NewsController@all') -> name('all');
             }
         );
+
+        Route::resource('news', 'NewsController') ->except('index');
 
         Route::get('/about', 'AboutController@get') -> name('about');
     }

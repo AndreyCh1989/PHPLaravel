@@ -3,50 +3,76 @@
 
 namespace App\Http\Controllers\ProjectControllers;
 
+use App\Category;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use App\News;
 
 class NewsController extends Controller
 {
     protected $table = "news";
 
-    public function getByCategory($category_id) {
-        $news = DB::table('news')->where('category_id', $category_id)->get();
+    public function getByCategory(Category $category) {
+        $news = $category->news()->paginate(5);
 
         if ($news)
-            return view('objects.news.all', [
-                'category' => DB::table('categories')->find($category_id),
+            return view('objects.news.all_by_category', [
+                'category' => $category,
                 'news' => $news
             ]);
         else
             return redirect(route('categories'));
     }
 
-    public function get($id) {
-        $item = DB::table('news')->find($id);
-        if ($item)
+    public function all() {
+        return view('objects.news.all', ['news' => News::paginate(10)]);
+    }
+
+    public function show(News $news) {
+        if ($news)
             return view('objects.news.one', [
-                'item' => $item
+                'item' => $news
             ]);
         else
             return redirect(route('categories'));
     }
 
-    public function add() {
-        if ($this->request->isMethod('post')) {
-            $newItem = [
-                "category_id" => (int)$this->request->category_id,
-                "title" => $this->request->title,
-                "text" => $this->request->text,
-                "is_private" =>  isset($this->request->is_private)
-            ];
+    public function store() {
+        $news = new News();
+        $news->fill($this->request->all());
+        $news->save();
 
-            $this->request->flash('title');
-            DB::table('news')->insert($newItem);
-        }
+        $message = "\"" . $this->request->get('title') . "\" was added";
+        return redirect()->route('news.create', ['categories' => Category::all()])->with('message',  $message);
+    }
 
+    public function create() {
+        return view('objects.news.add', ['categories' => Category::all()]);
+    }
+
+    public function edit(News $news) {
         return view('objects.news.add', [
-            'categories' => DB::table('categories')->get()
+            'categories' => Category::all(),
+            'news' => $news,
+            'category_id' => $news->category()->id
         ]);
+    }
+
+    public function update(News $news) {
+        $news->fill($this->request->all());
+        $news->save();
+
+        $message = "\"" . $this->request->get('title') . "\" has been updated";
+        return redirect()->route('news.edit', [
+            'categories' => Category::all(),
+            'news' => $news,
+            'category_id' => $news->category()->id
+        ])->with('message',  $message);
+    }
+
+    public function destroy(News $news) {
+        $news->delete();
+
+        $message = "\"" . $news->title . "\" has been successfully deleted";
+        return redirect()->route('news.all')->with('message',  $message);
     }
 }

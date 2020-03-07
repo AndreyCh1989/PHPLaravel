@@ -2,10 +2,11 @@
     <div class="text-left col-6">
         <a class="navbar-brand" href='{{ route('index') }}'>Home</a>
         <a class="navbar-brand" href="{{ route('about') }}">About</a>
-        <a class="navbar-brand" href="{{ route('categories') }}">News</a>
+        <a class="navbar-brand" href="{{ route('news.all') }}">All News</a>
+        <a class="navbar-brand" href="{{ route('categories') }}">Categories</a>
         @auth
             @if(Auth::user()->is_admin)
-                <a class="navbar-brand" href="{{ route('news.add') }}">Add News</a>
+                <a class="navbar-brand" href="{{ route('news.create') }}">Add News</a>
             @endif
         @endauth
     </div>
@@ -32,7 +33,6 @@
                         @csrf
                     </form>
                 </div>
-
             </li>
         @endguest
     </div>
