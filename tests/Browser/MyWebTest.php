@@ -3,19 +3,22 @@
 namespace Tests\Browser;
 
 use App\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
 class MyWebTest extends DuskTestCase
 {
-    use RefreshDatabase;
+    use DatabaseMigrations;
 
-    /**
-     * A Dusk test example.
-     *
-     * @return void
-     */
+    public function setUp(): void {
+        parent::setUp();
+
+        $this->user = factory(User::class)->create([
+            'is_admin' => true
+        ]);
+    }
+
     public function testAddNewsHidden()
     {
         $this->browse(function (Browser $browser) {
@@ -26,13 +29,52 @@ class MyWebTest extends DuskTestCase
 
     public function testAddNewsShown()
     {
-        $user = factory(User::class)->create([
-            'is_admin' => true
-        ]);
+        $user = $this->user;
+        $this->browse(function (Browser $browser) use ($user) {
+            $browser
+                ->loginAs($user)
+                ->visit('/')
+                ->assertSee('Add News');
+        });
+    }
 
-        $this->actingAs($user)->browse(function (Browser $browser) {
-            $browser->visit('/')
-                ->assertSee('Categories');
+    public function testTitleRequired()
+    {
+        $user = $this->user;
+        $this->browse(function (Browser $browser) use ($user) {
+            $browser
+                ->loginAs($user)
+                ->visit('/news/create')
+                ->press('Submit')
+                ->assertSee('The Title field is required.')
+                ->logout();
+        });
+    }
+
+    public function testTextRequired()
+    {
+        $user = $this->user;
+        $this->browse(function (Browser $browser) use ($user) {
+            $browser
+                ->loginAs($user)
+                ->visit('/news/create')
+                ->press('Submit')
+                ->assertSee('The Text field is required.')
+                ->logout();
+        });
+    }
+
+    public function testTextMinimum()
+    {
+        $user = $this->user;
+        $this->browse(function (Browser $browser) use ($user) {
+            $browser
+                ->loginAs($user)
+                ->visit('/news/create')
+                ->type('text', 'foo')
+                ->press('Submit')
+                ->assertSee('The Text must be at least 10 characters.')
+                ->logout();
         });
     }
 }
