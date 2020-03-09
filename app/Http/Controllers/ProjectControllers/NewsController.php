@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ProjectControllers;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewsRequest;
 use App\News;
 
 class NewsController extends Controller
@@ -36,12 +37,11 @@ class NewsController extends Controller
             return redirect(route('categories'));
     }
 
-    public function store() {
+    public function store(NewsRequest $request) {
         $news = new News();
-        $news->fill($this->request->all());
-        $news->save();
+        $news->fill($request->all())->save();
 
-        $message = "\"" . $this->request->get('title') . "\" was added";
+        $message = "\"{$request->get('title')}\" was added";
         return redirect()->route('news.create', ['categories' => Category::all()])->with('message',  $message);
     }
 
@@ -57,22 +57,17 @@ class NewsController extends Controller
         ]);
     }
 
-    public function update(News $news) {
-        $news->fill($this->request->all());
-        $news->save();
+    public function update(NewsRequest $request, News $news) {
+        $news->fill($request->all())->save();
 
-        $message = "\"" . $this->request->get('title') . "\" has been updated";
-        return redirect()->route('news.edit', [
-            'categories' => Category::all(),
-            'news' => $news,
-            'category_id' => $news->category()->id
-        ])->with('message',  $message);
+        $message = "\"{$request->get('title')}\" has been updated";
+        return redirect()->route('news.all')->with('message',  $message);
     }
 
     public function destroy(News $news) {
         $news->delete();
 
-        $message = "\"" . $news->title . "\" has been successfully deleted";
+        $message = "\"{$news->title}\" has been successfully deleted";
         return redirect()->route('news.all')->with('message',  $message);
     }
 }
