@@ -2,18 +2,19 @@
 
 @section('content')
     <form method="POST" action="{{ route('user.update', $user) }}">
-    @method('PUT')
-    @csrf
+        @method('PUT')
+        @csrf
+        <input type="hidden" name="user_id" value="{{ $user->id }}" />
         <div class="input-group mt-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Name</span>
             </div>
             <input name="name" type="text" aria-label="name" class="form-control"
-                   @if (old('name'))
+               @if (old('name'))
                    value="{{ old('name') }}"
-                   @elseif (isset($user))
+               @elseif (isset($user))
                    value="{{ $user->name }}"
-                @endif>
+            @endif>
         </div>
         @error('name')
         <div class="alert alert-danger" role="alert">
@@ -26,11 +27,11 @@
                 <span class="input-group-text">Email</span>
             </div>
             <input name="email" type="text" aria-label="name" class="form-control"
-                   @if (old('email'))
+               @if (old('email'))
                    value="{{ old('email') }}"
-                   @elseif (isset($user))
+               @elseif (isset($user))
                    value="{{ $user->email }}"
-                @endif>
+            @endif>
         </div>
         @error('email')
         <div class="alert alert-danger" role="alert">
@@ -43,31 +44,31 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Old Password</span>
             </div>
-            <input id="old_password" type="old_password" class="form-control" name="password" required autocomplete="new-password">
-            @error('old_password')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+            <input type="password" class="form-control" name="old_password" autocomplete="new-password">
         </div>
+        @error('old_password')
+            <div class="alert alert-danger" role="alert">
+                {{ $message }}
+            </div>
+        @enderror
 
         <div class="input-group mt-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Password</span>
             </div>
-            <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
-            @error('password')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+            <input id="password" type="password" class="form-control" name="password" autocomplete="new-password">
         </div>
+        @error('password')
+            <div class="alert alert-danger" role="alert">
+                {{ $message }}
+            </div>
+        @enderror
 
         <div class="input-group mt-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">Confirm Password</span>
             </div>
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+            <input type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
         </div>
         @endif
 

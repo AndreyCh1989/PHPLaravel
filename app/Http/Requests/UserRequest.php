@@ -25,11 +25,11 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5|max:25',
-            'email' => 'required|email',
+            'name' => 'required|min:3|max:25',
+            'email' => 'required|email|unique:users,email,'. $this->request->get('user_id') .',id',
             'is_admin' => 'required',
             'old_password' => 'password',
-            'password' => ''
+            'password' => 'min:3|same:password_confirmation'
         ];
     }
 
@@ -44,7 +44,8 @@ class UserRequest extends FormRequest
             'name' => 'Name',
             'email' => 'Email',
             'is_admin' => 'Is Admin',
-            'password' => 'Password'
+            'password' => 'Password',
+            'password_confirmation' => 'Password Confirmation'
         ];
     }
 }
