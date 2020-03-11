@@ -24,6 +24,9 @@ class UserController extends Controller
         $user->save();
 
         $message = "User \"{$user->name}\" has been successfully updated";
-        return redirect()->route('user.index')->with('message',  $message);
+        if (\Auth::user()->id == $user->id)
+            return redirect()->route('index')->with('message',  $message);
+        else
+            return redirect()->route('user.index')->with('message',  $message);
     }
 }

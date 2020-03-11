@@ -10,7 +10,10 @@ use App\News;
 
 class NewsController extends Controller
 {
-    protected $table = "news";
+    public function __construct()
+    {
+        $this->middleware('is_admin', ['only' => ['store', 'create', 'delete', 'update', 'edit']]);
+    }
 
     public function getByCategory(Category $category) {
         $news = $category->news()->paginate(5);

@@ -72,6 +72,7 @@
         </div>
         @endif
 
+        @if(Auth::user()->is_admin)
         <div class="form-check input-group mt-3">
             <input type="hidden" name="is_admin" value="0" />
             <input name="is_admin" class="form-check-input"
@@ -85,6 +86,7 @@
                 Is Admin
             </label>
         </div>
+        @endif
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </form>
 @endsection

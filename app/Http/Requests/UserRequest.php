@@ -27,9 +27,8 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required|min:3|max:25',
             'email' => 'required|email|unique:users,email,'. $this->request->get('user_id') .',id',
-            'is_admin' => 'required',
-            'old_password' => 'password',
-            'password' => 'min:3|same:password_confirmation'
+            'old_password' => 'exclude_if:password,|password',
+            'password' => 'exclude_if:password,|min:3|same:password_confirmation'
         ];
     }
 
