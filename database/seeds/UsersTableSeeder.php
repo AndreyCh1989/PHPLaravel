@@ -15,11 +15,19 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->delete();
 
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@admin.com',
-            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'password' => bcrypt('123'),
-            'is_admin' => true
+            [
+                'name' => 'admin',
+                'email' => 'admin@admin.com',
+                'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'password' => bcrypt('123'),
+                'is_admin' => true
+            ], [
+                'name' => 'user',
+                'email' => 'user@user.com',
+                'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'password' => bcrypt('123'),
+                'is_admin' => false
+            ]
         ]);
     }
 }

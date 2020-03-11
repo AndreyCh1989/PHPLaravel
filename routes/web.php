@@ -15,6 +15,7 @@ Route::group([
         'namespace' => 'ProjectControllers'
     ], function () {
         Route::get('/', 'HiController@index') -> name('index');
+        Route::get('/401', function() { return view('401'); } ) -> name('401');
         Route::get('/categories', 'CategoriesController@get') -> name('categories');
         Route::group([
                 'prefix' => 'news',
@@ -25,7 +26,8 @@ Route::group([
             }
         );
 
-        Route::resource('news', 'NewsController') ->except('index');
+        Route::resource('news', 'NewsController')->except('index');
+        Route::resource('user', 'UserController')->except('store', 'create', 'destroy', 'show')->middleware('is_admin');
 
         Route::get('/about', 'AboutController@get') -> name('about');
     }

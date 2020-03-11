@@ -7,6 +7,7 @@
         @auth
             @if(Auth::user()->is_admin)
                 <a class="navbar-brand" href="{{ route('news.create') }}">Add News</a>
+                <a class="navbar-brand" href="{{ route('user.index') }}">Users</a>
             @endif
         @endauth
     </div>
@@ -23,6 +24,7 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('user.edit', Auth::user()) }}">Edit</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
