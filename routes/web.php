@@ -25,7 +25,8 @@ Route::group([
             }
         );
 
-        Route::resource('news', 'NewsController') ->except('index');
+        Route::resource('news', 'NewsController')->except('index');
+        Route::resource('user', 'UserController')->except('store', 'create', 'destroy', 'show');
 
         Route::get('/about', 'AboutController@get') -> name('about');
     }
