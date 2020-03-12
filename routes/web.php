@@ -23,6 +23,15 @@ Route::group([
             ], function () {
                 Route::get('/category/{category}', 'NewsController@getByCategory') -> name('getByCategory');
                 Route::get('/all', 'NewsController@all') -> name('all');
+
+                Route::group([
+                    'namespace' => 'ExternalNews\Providers',
+                    'prefix' => 'ext',
+                    'as' => 'ext.'
+                ], function () {
+                    Route::get('/nasa', 'NasaProviderController@fetch') -> name('nasa');
+                    Route::get('/techworld', 'TechworldProviderController@fetch') -> name('techworld');
+                });
             }
         );
 
