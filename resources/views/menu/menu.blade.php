@@ -31,6 +31,7 @@
     <div class="text-right col-4">
         @guest
             <a class="navbar-brand" href="{{ route('login') }}">{{ __('Login') }}</a>
+            <a class="navbar-brand" href="{{ route('facebook.open') }}"><i class="fab fa-facebook-square"></i></a>
             @if (Route::has('register'))
                 <a class="navbar-brand" href="{{ route('register') }}">{{ __('Register') }}</a>
             @endif

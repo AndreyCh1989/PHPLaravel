@@ -42,4 +42,12 @@ Route::group([
     }
 );
 
+Route::group([
+    'prefix' => 'facebook',
+    'as' => 'facebook.'
+], function () {
+    Route::get('/open', 'FacebookController@open') -> name('open');
+    Route::get('/redirect', 'FacebookController@redirect') -> name('redirect');
+});
+
 Auth::routes();
