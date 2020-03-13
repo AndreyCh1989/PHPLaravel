@@ -2,7 +2,7 @@
 
 @section('content')
     <div style="margin-bottom: 15px">
-        {{ $category->name }} News
+        Category: {{ $category->name }}
     </div>
     @forelse ($news as $item)
         @include('objects.news.news_link')

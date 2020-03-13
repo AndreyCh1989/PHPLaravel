@@ -23,6 +23,15 @@ Route::group([
             ], function () {
                 Route::get('/category/{category}', 'NewsController@getByCategory') -> name('getByCategory');
                 Route::get('/all', 'NewsController@all') -> name('all');
+
+                Route::group([
+                    'namespace' => 'ExternalNews\Providers',
+                    'prefix' => 'ext',
+                    'as' => 'ext.'
+                ], function () {
+                    Route::get('/nasa', 'NasaProviderController@fetch') -> name('nasa');
+                    Route::get('/techworld', 'TechworldProviderController@fetch') -> name('techworld');
+                });
             }
         );
 
@@ -32,5 +41,13 @@ Route::group([
         Route::get('/about', 'AboutController@get') -> name('about');
     }
 );
+
+Route::group([
+    'prefix' => 'facebook',
+    'as' => 'facebook.'
+], function () {
+    Route::get('/open', 'FacebookController@open') -> name('open');
+    Route::get('/redirect', 'FacebookController@redirect') -> name('redirect');
+});
 
 Auth::routes();
