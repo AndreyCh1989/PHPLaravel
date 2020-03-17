@@ -24,6 +24,7 @@ Route::group([
                 Route::get('/category/{category}', 'NewsController@getByCategory') -> name('getByCategory');
                 Route::get('/all', 'NewsController@all') -> name('all');
                 Route::get('/fetch', 'NewsProviderController@fetch') -> name('ext');
+                Route::resource('/resource', 'ResourceController')->except('create', 'show', 'update', 'edit');
             }
         );
 

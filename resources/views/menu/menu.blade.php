@@ -16,6 +16,7 @@
             @if(Auth::user()->is_admin)
                 <div><a class="navbar-brand" href="{{ route('news.create') }}">Add News</a></div>
                 <div><a class="navbar-brand" href="{{ route('news.ext') }}">Import News</a></div>
+                <div><a class="navbar-brand" href="{{ route('news.resource.index') }}">Resources</a></div>
                 <div><a class="navbar-brand" href="{{ route('user.index') }}">Users</a></div>
             @endif
         @endauth
