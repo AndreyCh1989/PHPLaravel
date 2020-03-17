@@ -17,7 +17,8 @@
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
         "orchestra/parser": "^4.0",
-        "socialiteproviders/facebook": "^1.0"
+        "socialiteproviders/facebook": "^1.0",
+        "unisharp/laravel-filemanager": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

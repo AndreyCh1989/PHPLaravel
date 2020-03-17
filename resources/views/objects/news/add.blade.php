@@ -50,7 +50,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Text</span>
         </div>
-        <textarea name="text" class="form-control" rows="8" aria-label="With textarea">@if (old('text')){{ old('text') }}@elseif (isset($news)){{ $news->text }}@endif</textarea>
+        <textarea id="text-area" name="text" class="form-control" rows="8" aria-label="With textarea">@if (old('text')){{ old('text') }}@elseif (isset($news)){{ $news->text }}@endif</textarea>
     </div>
     @error('text')
         <div class="alert alert-danger" role="alert">
@@ -71,5 +71,14 @@
         </label>
     </div>
     <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <script>
+        let options = {
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        };
+        CKEDITOR.create(document.querySelector('#text-area'), options);
+    </script>
 </form>
 @endsection
