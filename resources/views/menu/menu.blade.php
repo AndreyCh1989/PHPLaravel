@@ -15,15 +15,8 @@
         @auth
             @if(Auth::user()->is_admin)
                 <div><a class="navbar-brand" href="{{ route('news.create') }}">Add News</a></div>
-                <div class="dropdown text-left">
-                    <a class="nav-link dropdown-toggle navbar-brand pr-0 pl-0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Import News
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('news.ext.nasa') }}">Nasa</a>
-                        <a class="dropdown-item" href="{{ route('news.ext.techworld') }}">Techworld</a>
-                    </div>
-                </div>
+                <div><a class="navbar-brand" href="{{ route('news.ext') }}">Import News</a></div>
+                <div><a class="navbar-brand" href="{{ route('news.resource.index') }}">Resources</a></div>
                 <div><a class="navbar-brand" href="{{ route('user.index') }}">Users</a></div>
             @endif
         @endauth

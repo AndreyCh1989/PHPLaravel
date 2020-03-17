@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>News</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body>
     @include('header.header')
@@ -26,7 +27,5 @@
     </div>
 
     @include('footer.footer')
-
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

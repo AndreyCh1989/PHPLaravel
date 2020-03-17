@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^17.0.0",
         "@fortawesome/fontawesome-free": "^5.12.1",
         "popper.js": "^1.16.1"
     }

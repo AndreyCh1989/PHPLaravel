@@ -1,0 +1,20 @@
+ DONE  Compiled successfully in 16853ms11:04:22 AM
+
+                                                                                              Asset      Size   Chunks             Chunk Names
+                                                                                       /css/app.css   248 KiB  /js/app  [emitted]  /js/app
+                                                                                         /js/app.js  1.95 MiB  /js/app  [emitted]  /js/app
+   fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot?57dcda6f368ea90179f75cbdae96c263   130 KiB           [emitted]  
+   fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.svg?9d67fa1429375bd2a899a17eb77d0342   699 KiB           [emitted]  
+   fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.ttf?9ec698d1a597bff5df337094b71ddaaf   130 KiB           [emitted]  
+ fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff2?067595ad77ecc0db9c81c8905a7eef32  74.8 KiB           [emitted]  
+  fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff?b564da88bbf0c4aa446fa19653713cd1  87.7 KiB           [emitted]  
+  fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.eot?3351f435b3c9037fd88aeb04dc1e43bc  33.6 KiB           [emitted]  
+  fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.svg?5d0861781aeef6c82fda3a3076954a1b   141 KiB           [emitted]  
+  fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.ttf?a0e3ac82940c1998c5977fd4bc1f5ef6  33.3 KiB           [emitted]  
+fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff2?4165c2688309cbfb1b877caf8f75afb5  13.3 KiB           [emitted]  
+ fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff?73cf49a2232c06c920b7a34e36bfb58c  16.4 KiB           [emitted]  
+    fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.eot?89e02bae13c9131c7468b1e729339ac1   190 KiB           [emitted]  
+    fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.svg?0724bb8b89ab6b8b9b7df917b17be0b7   829 KiB           [emitted]  
+    fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.ttf?75f38a159982b6bd1704891332d95fa7   189 KiB           [emitted]  
+  fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff2?55eb2a60e8181f0e68b558c991973bf0  74.3 KiB           [emitted]  
+   fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff?cdfec5cf5e9840889790bcf2c4042583  96.7 KiB           [emitted]  
