@@ -1,21 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\ProjectControllers\ExternalNews;
+
+namespace App\Services;
+
 
 use App\Category;
-use App\Http\Controllers\Controller;
 use App\News;
 use Orchestra\Parser\Xml\Facade as XmlParser;
 
-abstract class NewsProviderController extends Controller
+class XMLParserService
 {
-    protected $url;
-
-    public function fetch() {
-        $xml = XmlParser::load($this->url);
+    public function saveNews($url) {
+        $xml = XmlParser::load($url);
         $this->save($xml);
-
-        return redirect()->route('categories');
     }
 
     protected function parse($xml) {
